@@ -12,13 +12,14 @@
 //#include "suika.h"
 #include "sleep_heart.h" //SLEEP HEART
 //#include "star.h" //STAR
-#include "garapiko17.h" //KAERU,ONPU,KARASU
+//#include "garapiko17.h" //KAERU,ONPU,KARASU
 //#include "patolamp_hasami.h" //KAMIFUBUKI,JAJAN
 //#include "cho2.h" //
 //#include "chulip.h" //
 //#include "heart_20160810.h" //
 //#include "pencil.h" //
 //#include "leaf_20160830.h" //
+#include "teapot.h"
 
 
 
@@ -206,8 +207,8 @@ int main(void) {
 
                 //UP
             case 'U':
-                
-//                setPattern(pencil_sample, 1);
+
+                //                setPattern(pencil_sample, 1);
                 myData[0] = 0;
                 deletePattern();
                 break;
@@ -355,17 +356,23 @@ int main(void) {
 
                 //STK-R UP
             case 'm':
-                //ONPU_1
-                
-                setPattern(onpu[0], 1);
-                
+                //teapot
+                if (frameCount % 3 == 0) {
+                    frameCount = 0;
+                    aCnt++;
+                    if (aCnt >= sizeof (frame_teapot) / sizeof (unsigned char)) {
+                        aCnt = sizeof (frame_teapot) / sizeof (unsigned char) - 1;
+                    }
+                }
+                setPattern(teapot[frame_teapot[aCnt]], 2);
+
                 break;
 
                 //STK-R DOWN
             case 'n':
-                //ONPU_2
-                
-                setPattern(onpu[1], 1);
+                //nothing
+                myData[0] = 0;
+                deletePattern();
 
                 break;
         }

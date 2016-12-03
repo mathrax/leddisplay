@@ -30,6 +30,7 @@
       <itemPath>heart_20160810.h</itemPath>
       <itemPath>pencil.h</itemPath>
       <itemPath>leaf_20160830.h</itemPath>
+      <itemPath>teapot.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerFiles"
                    displayName="Linker Files"
@@ -71,6 +72,8 @@
           <parseOnProdLoad>true</parseOnProdLoad>
           <alternateLoadableFile></alternateLoadableFile>
         </loading>
+        <subordinates>
+        </subordinates>
       </compileType>
       <makeCustomizationType>
         <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
