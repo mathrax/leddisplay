@@ -4,33 +4,37 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>pattern.h</itemPath>
-      <itemPath>animationA.h</itemPath>
-      <itemPath>animationB.h</itemPath>
-      <itemPath>animationC.h</itemPath>
-      <itemPath>animationD.h</itemPath>
-      <itemPath>animationE.h</itemPath>
-      <itemPath>animationF.h</itemPath>
-      <itemPath>animationG.h</itemPath>
-      <itemPath>animationH.h</itemPath>
-      <itemPath>animationI.h</itemPath>
-      <itemPath>animationJ.h</itemPath>
-      <itemPath>animationK.h</itemPath>
-      <itemPath>animationL.h</itemPath>
-      <itemPath>animationM.h</itemPath>
-      <itemPath>ledmatrix_ws2812.h</itemPath>
-      <itemPath>sleep_heart.h</itemPath>
-      <itemPath>suika.h</itemPath>
-      <itemPath>star.h</itemPath>
-      <itemPath>garapiko17.h</itemPath>
-      <itemPath>garapiko17_ani.h</itemPath>
-      <itemPath>patolamp_hasami.h</itemPath>
-      <itemPath>cho2.h</itemPath>
-      <itemPath>chulip.h</itemPath>
-      <itemPath>heart_20160810.h</itemPath>
-      <itemPath>pencil.h</itemPath>
-      <itemPath>leaf_20160830.h</itemPath>
-      <itemPath>teapot.h</itemPath>
+      <logicalFolder name="f1" displayName="animation_data" projectFiles="true">
+        <itemPath>animation_data/animationA.h</itemPath>
+        <itemPath>animation_data/animationB.h</itemPath>
+        <itemPath>animation_data/animationC.h</itemPath>
+        <itemPath>animation_data/animationD.h</itemPath>
+        <itemPath>animation_data/animationE.h</itemPath>
+        <itemPath>animation_data/animationF.h</itemPath>
+        <itemPath>animation_data/animationG.h</itemPath>
+        <itemPath>animation_data/animationH.h</itemPath>
+        <itemPath>animation_data/animationI.h</itemPath>
+        <itemPath>animation_data/animationJ.h</itemPath>
+        <itemPath>animation_data/animationK.h</itemPath>
+        <itemPath>animation_data/animationL.h</itemPath>
+        <itemPath>animation_data/animationM.h</itemPath>
+        <itemPath>animation_data/cho2.h</itemPath>
+        <itemPath>animation_data/chulip.h</itemPath>
+        <itemPath>animation_data/doripon.h</itemPath>
+        <itemPath>animation_data/garapiko17.h</itemPath>
+        <itemPath>animation_data/garapiko17_ani.h</itemPath>
+        <itemPath>animation_data/heart_20160810.h</itemPath>
+        <itemPath>animation_data/hoshinoki.h</itemPath>
+        <itemPath>animation_data/leaf_20160830.h</itemPath>
+        <itemPath>animation_data/patolamp_hasami.h</itemPath>
+        <itemPath>animation_data/pattern.h</itemPath>
+        <itemPath>animation_data/pencil.h</itemPath>
+        <itemPath>animation_data/sleep_heart.h</itemPath>
+        <itemPath>animation_data/star.h</itemPath>
+        <itemPath>animation_data/suika.h</itemPath>
+        <itemPath>animation_data/teapot.h</itemPath>
+      </logicalFolder>
+      <itemPath>user.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerFiles"
                    displayName="Linker Files"
@@ -40,6 +44,8 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>main.c</itemPath>
+      <itemPath>user.c</itemPath>
+      <itemPath>configuration_bits.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -47,6 +53,9 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">
@@ -243,6 +252,7 @@
         <property key="UART1" value="true"/>
         <property key="UART2" value="true"/>
         <property key="USB" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
@@ -253,28 +263,22 @@
         <property key="memories.flashdata" value="true"/>
         <property key="memories.id" value="true"/>
         <property key="memories.instruction.ram" value="true"/>
-        <property key="memories.instruction.ram.end"
-                  value="${memories.instruction.ram.end.value}"/>
-        <property key="memories.instruction.ram.start"
-                  value="${memories.instruction.ram.start.value}"/>
+        <property key="memories.instruction.ram.ranges"
+                  value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
-        <property key="memories.programmemory.end" value="0x1d01ffff"/>
-        <property key="memories.programmemory.partition2" value="true"/>
-        <property key="memories.programmemory.partition2.end"
-                  value="${memories.programmemory.partition2.end.value}"/>
-        <property key="memories.programmemory.partition2.start"
-                  value="${memories.programmemory.partition2.start.value}"/>
-        <property key="memories.programmemory.start" value="0x1d000000"/>
+        <property key="memories.programmemory.ranges" value="1d000000-1d01ffff"/>
         <property key="poweroptions.powerenable" value="true"/>
         <property key="programmertogo.imagename" value=""/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmspeed" value="2"/>
         <property key="programoptions.preservedataflash" value="false"/>
+        <property key="programoptions.preservedataflash.ranges"
+                  value="${programoptions.preservedataflash.ranges}"/>
         <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveeeprom.ranges" value=""/>
+        <property key="programoptions.preserveprogram.ranges" value=""/>
         <property key="programoptions.preserveprogramrange" value="false"/>
-        <property key="programoptions.preserveprogramrange.end" value="0x1d01ffff"/>
-        <property key="programoptions.preserveprogramrange.start" value="0x1d000000"/>
         <property key="programoptions.preserveuserid" value="false"/>
         <property key="programoptions.programcalmem" value="false"/>
         <property key="programoptions.programuserotp" value="false"/>
