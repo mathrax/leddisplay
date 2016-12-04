@@ -29,7 +29,6 @@ unsigned char aCnt;
 unsigned char frameCount;
 unsigned char firstReset;
 
-
 void __ISR(_UART_1_VECTOR, IPL4) U1RXHandler(void) {
     unsigned char RcvData;
     IFS1bits.U1RXIF = 0;
@@ -189,9 +188,14 @@ int main(void) {
 
                 //STK-L LEFT
             case 'g':
-                //nothing
-                 myData[0] = 0;
-                deletePattern();
+                //WAVE
+                if (frameCount % 3 == 0) {
+                    aCnt++;
+                    if (aCnt >= sizeof (wave_frame) / sizeof (unsigned char)) {
+                        aCnt = 0;
+                    }
+                }
+                setPattern(wave[wave_frame[aCnt]], 1);
 
                 break;
                 //STK-L RIGHT
